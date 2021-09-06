@@ -20,12 +20,12 @@ public class Ball {
         this.shape = "round";
     }
 
-    public void setColour(String toColour) {
-        this.colour = toColour;
+    public void setColour(String colour) {
+        this.colour = colour;
     }
 
-    public void setShape(String toShape) {
-        this.shape = toShape;
+    public void setShape(String shape) {
+        this.shape = shape;
     }
 
     public String ToString(){
