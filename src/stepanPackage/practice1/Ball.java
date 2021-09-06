@@ -1,4 +1,4 @@
-package stepanPackage;
+package stepanPackage.practice1;
 import java.lang.*;
 
 public class Ball {
