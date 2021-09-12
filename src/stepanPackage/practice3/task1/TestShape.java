@@ -1,3 +1,7 @@
+//
+// Practice ¹–3 task1 Berkunov Stepan INBO-02-20
+//
+
 package stepanPackage.practice3.task1;
 
 public class TestShape {
