@@ -1,5 +1,5 @@
 //
-// Practice â„–1 Berkunov Stepan INBO-02-20
+// Practice ¹–1 Berkunov Stepan INBO-02-20
 //
 
 package stepanPackage.practice1;
