@@ -35,6 +35,6 @@ public class Author {
 	
 	@Override
 	public String toString() {
-		return getName() + " (" + getGender() + ") " + "at " + getEmail();
+		return this.getName() + " (" + this.getGender() + ") " + "at " + this.getEmail();
 	}
 }
