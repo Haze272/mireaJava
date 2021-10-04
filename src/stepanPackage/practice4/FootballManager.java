@@ -12,7 +12,7 @@ public class FootballManager extends JFrame {
         JButton Milan = new JButton("AC Milan");
         JButton Madrid = new JButton("Real Madrid");
         JLabel result = new JLabel("Result: " + x + " X " + y);
-        JLabel last_scorer = new JLabel("Last Scorer: " + name);
+        JLabel last_scorer = new JLabel(getLastScorrer());
         JLabel game_over = new JLabel(getWinner());
 
         add (Milan, BorderLayout.WEST);
