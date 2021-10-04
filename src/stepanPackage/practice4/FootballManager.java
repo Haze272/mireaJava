@@ -7,7 +7,8 @@ import java.awt.event.*;
 public class FootballManager extends JFrame {
     String name = "N/A", winner = "DRAW";
     int x = 0, y = 0;
-    FootballManager() {
+
+    public FootballManager() {
         String[] Names = new String [] {"Mike", "Jack", "Richard", "Charles", "Joseph", "Thomas", "Paul", "Donald", "Steven", "Edward"};
         JButton Milan = new JButton("AC Milan");
         JButton Madrid = new JButton("Real Madrid");
@@ -30,7 +31,7 @@ public class FootballManager extends JFrame {
                 x++;
                 result.setText("Result: " + x + " X "+y);
                 last_scorer.setText("Last Scorer: " + Names[x % 10]);
-                if (x > y) game_over.setText("Winner: Milan");
+                game_over.setText(getWinner());
             }
             public void mouseExited(MouseEvent a) {}
             public void mouseEntered(MouseEvent a) {}
@@ -42,13 +43,25 @@ public class FootballManager extends JFrame {
             public void mouseClicked(MouseEvent a) {
                 y++;
                 result.setText("Result: " + x + " X " +y);
-                last_scorer.setText("Last Scorer: " + Names[y%10]);
-                if (y>x) game_over.setText("Winner: Madrid");
+                last_scorer.setText("Last Scorer: " + Names[y % 10]);
+                game_over.setText(getWinner());
             }
             public void mouseExited(MouseEvent a) {}
             public void mouseEntered(MouseEvent a) {}
             public void mouseReleased(MouseEvent a) {}
             public void mousePressed(MouseEvent a) {}
         });
+    }
+
+    protected String getWinner() {
+        if (x > y) {
+            return "Winner is AC Milan!";
+        } else if (x < y) {
+            return "Winner is Real Madrid!";
+        } else if (x == y) {
+            return "DRAW";
+        } else {
+            return "ERROR";
+        }
     }
 }
