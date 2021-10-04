@@ -5,16 +5,15 @@ import java.awt.*;
 import java.awt.event.*;
 
 public class FootballManager extends JFrame {
-    String name = "N/A", winner = "DRAW";
+    String name = "N/A", winner = "DRAW", lastScorrer = "N/A";
     int x = 0, y = 0;
 
     public FootballManager() {
-        String[] Names = new String [] {"Mike", "Jack", "Richard", "Charles", "Joseph", "Thomas", "Paul", "Donald", "Steven", "Edward"};
         JButton Milan = new JButton("AC Milan");
         JButton Madrid = new JButton("Real Madrid");
-        JLabel result = new JLabel("Result: "+x+" X "+y);
-        JLabel last_scorer = new JLabel("Last Scorer: "+name);
-        JLabel game_over = new JLabel("Winner: "+ "DRAW");
+        JLabel result = new JLabel("Result: " + x + " X " + y);
+        JLabel last_scorer = new JLabel("Last Scorer: " + name);
+        JLabel game_over = new JLabel(getWinner());
 
         add (Milan, BorderLayout.WEST);
         add (Madrid, BorderLayout.EAST);
@@ -29,8 +28,10 @@ public class FootballManager extends JFrame {
         Milan.addMouseListener(new MouseListener() {
             public void mouseClicked(MouseEvent a) {
                 x++;
-                result.setText("Result: " + x + " X "+y);
-                last_scorer.setText("Last Scorer: " + Names[x % 10]);
+                setLastScorrer("AC Milan");
+
+                result.setText("Result: " + x + " X " + y);
+                last_scorer.setText("Last Scorer: " + getLastScorrer());
                 game_over.setText(getWinner());
             }
             public void mouseExited(MouseEvent a) {}
@@ -42,8 +43,10 @@ public class FootballManager extends JFrame {
         Madrid.addMouseListener(new MouseListener() {
             public void mouseClicked(MouseEvent a) {
                 y++;
+                setLastScorrer("Real Madrid");
+
                 result.setText("Result: " + x + " X " +y);
-                last_scorer.setText("Last Scorer: " + Names[y % 10]);
+                last_scorer.setText("Last Scorer: " + getLastScorrer());
                 game_over.setText(getWinner());
             }
             public void mouseExited(MouseEvent a) {}
@@ -51,6 +54,14 @@ public class FootballManager extends JFrame {
             public void mouseReleased(MouseEvent a) {}
             public void mousePressed(MouseEvent a) {}
         });
+    }
+
+    protected void setLastScorrer(String lastScorrer) {
+        this.lastScorrer = lastScorrer;
+    }
+
+    protected String getLastScorrer() {
+        return this.lastScorrer;
     }
 
     protected String getWinner() {
