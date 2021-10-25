@@ -1,9 +1,13 @@
 package stepanPackage.practice5;
 
-import java.lang.*;
-
 public class toRecurTest {
     public static void main(String[] args) {
-        System.out.printf("ХУЙ");
+        toRecur rec = new toRecur();
+
+        System.out.println(rec.digitsCount(272));
+
+        System.out.println(rec.isPrime(32, 2));
+
+        rec.factorize(32, 2);
     }
 }
