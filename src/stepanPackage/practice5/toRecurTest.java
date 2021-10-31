@@ -6,8 +6,9 @@ public class toRecurTest {
 
         System.out.println(rec.digitsCount(272));
 
-        System.out.println(rec.isPrime(32, 2));
+        rec.isPrime(32, 2);
 
-        rec.factorize(32, 2);
+        rec.checkPalindrome("shit");
+        rec.checkPalindrome("momom");
     }
 }
