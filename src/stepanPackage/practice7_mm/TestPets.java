@@ -1,39 +1,58 @@
 import java.util.*;
 
 public class TestPets {
-    public static String rNum(int min, int max) {
+    public static int rNum(int min, int max) {
         max -= min;
-        return String.valueOf((int)(Math.random() * ++max) + min);
+        return (int)(Math.random() * ++max) + min;
     }
 
     public static void main(String[] args) {
         // Инициализируем HashMap (пункт 2)
-        Map<String, List<? extends Pet>> hashmap = new HashMap<>();
+        HashMap<String, Pet> hashmap = new HashMap<>();
 
         // Создадим отображение (пункт 3)
-        hashmap.put("Cats", Arrays.asList(new Cat("Barsick"), new Cat("Musya")));
-        hashmap.put("Dogs", Arrays.asList(new Cat("Mukhthar"), new Cat("Max")));
-        hashmap.put("Owls", Arrays.asList(new Cat("Marina"), new Cat("Capitalina")));
+        hashmap.put("Cat", new Cat("Barsick"));
+        hashmap.put("Cat", new Cat("Musya"));
+        hashmap.put("Dog", new Dog("Mukhthar"));
+        hashmap.put("Dog", new Dog("Max"));
+        hashmap.put("Owl", new Owl("Marina"));
+        hashmap.put("Owl", new Owl("Capitalina"));
 
         // Получаем набор элементов (пункт 4)
-        Set<Map.Entry<String, List<? extends Pet>>> set = hashmap.entrySet();
+        Set<Map.Entry<String, Pet>> set = hashmap.entrySet();
 
         // Отобразим набор (пункт 5)
-        for (Map.Entry<String, List<? extends Pet>> me : set) {
-            System.out.println(me.getKey() + " contains");
-            for (Pet pet : me.getValue()) {
-                System.out.println("  " + pet.getName());
-            }
+        for (Map.Entry<String, Pet> me : set) {
+            System.out.println(me.getKey() + " " + me.getValue().getName());
         }
 
-        // Добавляем новые значения (пункт 6)
-        //hashmap.put("Cats", Arrays.asList(new Cat("Magnus")));
+        // Добавим новые значения (пункт 6)
+        hashmap.put("Cat", new Cat("Izolda"));
 
-        // Генерируем случайные числа для подсчёта повторов (пункт 7)
-        Map<String, List<? extends Pet>> hashmap2 = new HashMap<>();
+        // Сгенирируем набор случайных чисел и посчитаем количество повторов (пункт 7)
+        int[] arrInt = new int[10];
+        for (int i = 0; i < 10; i++) {
+            arrInt[i] = rNum(1, 3);
+        }
 
-        for (int i = 0; i < 100; i++) {
-            hashmap.put(rNum(1, 10), Arrays.asList(new Cat("Element" + i)));
+        //Выведем сгенерированный масив для проверки
+        for (int i = 0; i < arrInt.length; i++) {
+            System.out.print(arrInt[i] + " ");
+        }
+        System.out.println(" ");
+
+        Map<Integer, Integer> occurrences = new HashMap<Integer, Integer>();
+
+        for (Integer numka : arrInt) {
+            Integer oldCount = occurrences.get(numka);
+            if (oldCount == null) {
+                oldCount = 0;
+            }
+            occurrences.put(numka, oldCount + 1);
+        }
+
+        for (Integer giga : occurrences.keySet()) {
+            System.out.println("Для числа " + giga + " количество повторенией: " + occurrences.get(giga));
         }
     }
 }
