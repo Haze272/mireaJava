@@ -45,7 +45,7 @@ public class toRecur {
         else System.out.println("NO");
     }
 
-    public int reverseNum(int num) {
-//ss
-    }
+    //public int reverseNum(int num) {
+        //ss
+    //}
 }
