@@ -44,8 +44,4 @@ public class toRecur {
         if (isPalindrome(str) == true) System.out.println("YES");
         else System.out.println("NO");
     }
-
-    //public int reverseNum(int num) {
-        //ss
-    //}
 }

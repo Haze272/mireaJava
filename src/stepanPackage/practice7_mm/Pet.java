@@ -1,3 +1,5 @@
+package stepanPackage.practice7_mm;
+
 public class Pet {
 
     String name;

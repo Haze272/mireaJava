@@ -8,7 +8,7 @@ public class toRecurTest {
 
         rec.isPrime(32, 2);
 
-        rec.checkPalindrome("shit");
+        rec.checkPalindrome("itgood");
         rec.checkPalindrome("momom");
     }
 }

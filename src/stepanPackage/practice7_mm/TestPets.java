@@ -1,3 +1,5 @@
+package stepanPackage.practice7_mm;
+
 import java.util.*;
 
 public class TestPets {
