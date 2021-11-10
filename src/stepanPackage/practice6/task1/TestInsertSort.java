@@ -15,9 +15,20 @@ public class TestInsertSort {
         Student student6 = new Student(39, "Iban");
         Student student7 = new Student(81, "Fermin");
 
+        System.out.println("Old array:");
         for (int std : Student.iDNumber) {
-            System.out.printf("id - %d\n", std);
+            System.out.printf("id[%d] Student: %s\n", std, Student.getStudentById(std));
+            //System.out.printf("id - %d\n", std);
         }
 
+        Student.sortStudents();
+
+        System.out.println("New array:");
+        for (int std : Student.iDNumber) {
+            System.out.printf("id[%d] Student: %s\n", std, Student.getStudentById(std));
+            //System.out.printf("id - %d\n", std);
+        }
+
+        //System.out.println(Student.getStudentById(99));
     }
 }
