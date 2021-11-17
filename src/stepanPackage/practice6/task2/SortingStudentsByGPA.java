@@ -5,41 +5,43 @@ import java.util.*;
 
 public class SortingStudentsByGPA implements Comparator<Student> {
 
-    ArrayList<Student> fastSort(ArrayList<Student> array, int leftBorder, int rightBorder) {
-        int leftMarker = leftBorder;
-        int rightMarker = rightBorder;
+    public static void qsort(ArrayList<Student> array, int low, int high) {
+        if (array.size() == 0)
+            return;//завершить выполнение если длина массива равна 0
 
-        Student pivot = array.get((leftMarker + rightMarker) / 2);
-        do {
-            // Двигаем левый маркер слева направо пока элемент меньше, чем pivot
-            while (array.get(leftMarker) < pivot) {
-                leftMarker++;
-            }
-            // Двигаем правый маркер, пока элемент больше, чем pivot
-            while (source[rightMarker] > pivot) {
-                rightMarker--;
-            }
-            // Проверим, не нужно обменять местами элементы, на которые указывают маркеры
-            if (leftMarker <= rightMarker) {
-                // Левый маркер будет меньше правого только если мы должны выполнить swap
-                if (leftMarker < rightMarker) {
-                    int tmp = source[leftMarker];
-                    source[leftMarker] = source[rightMarker];
-                    source[rightMarker] = tmp;
-                }
-                // Сдвигаем маркеры, чтобы получить новые границы
-                leftMarker++;
-                rightMarker--;
-            }
-        } while (leftMarker <= rightMarker);
+        if (low >= high)
+            return;//завершить выполнение если уже нечего делить
 
-        // Выполняем рекурсивно для частей
-        if (leftMarker < rightBorder) {
-            fastSort(source, leftMarker, rightBorder);
+        // выбрать опорный элемент
+        int middle = low + (high - low) / 2;
+        Student opora = array.get(middle);
+
+        // разделить на подмассивы, который больше и меньше опорного элемента
+        int i = low, j = high;
+        while (i <= j) {
+            while (array.get(i).getAverageScore() < opora.getAverageScore()) { // <
+                i++;
+            }
+
+            while (array.get(j).getAverageScore() > opora.getAverageScore()) { // >
+                j--;
+            }
+
+            if (i <= j) {//меняем местами
+                Student temp = array.get(i);
+                array.set(i, array.get(j));
+                array.set(j, temp);
+                i++;
+                j--;
+            }
         }
-        if (leftBorder < rightMarker) {
-            fastSort(source, leftBorder, rightMarker);
-        }
+
+        // вызов рекурсии для сортировки левой и правой части
+        if (low < j)
+            qsort(array, low, j);
+
+        if (high > i)
+            qsort(array, i, high);
     }
 
     @Override
