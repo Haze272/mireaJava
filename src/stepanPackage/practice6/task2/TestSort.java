@@ -3,10 +3,12 @@ package stepanPackage.practice6.task2;
 import stepanPackage.practice6.Student;
 
 import java.util.ArrayList;
+import java.util.Collections;
+import java.util.Comparator;
+import java.util.List;
 
 public class TestSort {
     public static void main(String[] args) {
-        SortingStudentsByGPA sorting = new SortingStudentsByGPA();
 
         Student student1 = new Student(55, "Pablo", 4.5);
         Student student2 = new Student(13, "Juan", 3.56);
@@ -21,9 +23,9 @@ public class TestSort {
             System.out.printf(std.toString());
         }
 
-        int low = 0;
-        int high = Student.students.size() - 1;
-        sorting.qsort(Student.students, low, high);
+        Comparator averageScoreComparator = new SortingStudentsByGPA();
+        Collections.sort(Student.students, averageScoreComparator);
+
 
         System.out.println("New array:");
         for (Student std : Student.students) {
