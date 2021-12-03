@@ -2,7 +2,7 @@ package stepanPackage.practice9;
 
 public class OnlineMarketUI {
     public OnlineMarketUI() {
-        showTitle("Welcome to Haze Market OS!");
+        showTitle("Welcome to Haze Market OS! Marinochka");
         System.out.println("");
 
         executeMenu();
