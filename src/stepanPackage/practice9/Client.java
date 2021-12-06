@@ -1,7 +1,5 @@
 package stepanPackage.practice9;
 
-import stepanPackage.practice6.Student;
-
 import java.util.ArrayList;
 
 public class Client {

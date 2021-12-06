@@ -3,9 +3,6 @@ package stepanPackage.practice7.task1;
 import stepanPackage.practice7.Card;
 import java.util.*;
 
-// на вход от 0 до 9, где 0 бьёт 9
-// TODO сделать правило, по которому 0 убивает 9
-
 public class TestStack {
 
     public static void main(String[] args) {
