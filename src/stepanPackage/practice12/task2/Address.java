@@ -13,4 +13,17 @@ public class Address {
         building = dividedAddress[5];
         flat = dividedAddress[6];
     }
+
+    @Override
+    public String toString() {
+        return "Address{" +
+                "country='" + country + '\'' +
+                ", region='" + region + '\'' +
+                ", city='" + city + '\'' +
+                ", street='" + street + '\'' +
+                ", house='" + house + '\'' +
+                ", building='" + building + '\'' +
+                ", flat='" + flat + '\'' +
+                '}';
+    }
 }
