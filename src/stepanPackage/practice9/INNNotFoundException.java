@@ -1,7 +1,7 @@
 package stepanPackage.practice9;
 
-public class ITNNotFoundException extends Exception {
-    public ITNNotFoundException(String errorMessage) {
+public class INNNotFoundException extends Exception {
+    public INNNotFoundException(String errorMessage) {
         super(errorMessage);
     }
 

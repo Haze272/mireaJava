@@ -1,7 +1,7 @@
 package stepanPackage.practice9;
 
-public class OnlineMarketUI {
-    public OnlineMarketUI() {
+public class MarketApp {
+    public MarketApp() {
         showTitle("Welcome to Haze Market OS! Marinochka");
         System.out.println("");
 
@@ -77,24 +77,24 @@ public class OnlineMarketUI {
     private void addOrder() {
         showTitle("Добавление заказа");
         System.out.println("Введите ИНН (11 цифр).");
-        String ITN = TestMarket.scan.nextLine();
+        String INN = TestMarket.scan.nextLine();
         try  {
-            if (ITN.length() < 11) throw new ITNNotFoundException("Значение ИНН меньше 11 цифр");
-            if (ITN.length() > 11) throw new ITNNotFoundException("Значение ИНН больше 11 цифр");
-        } catch (ITNNotFoundException e) {
+            if (INN.length() < 11) throw new INNNotFoundException("Значение ИНН меньше 11 цифр");
+            if (INN.length() > 11) throw new INNNotFoundException("Значение ИНН больше 11 цифр");
+        } catch (INNNotFoundException e) {
             System.out.println(e.toString());
             return;
         }
 
         Client toClient = null;
         try {
-            toClient = Client.findClientByITN(ITN);
+            toClient = Client.findClientByINN(INN);
         } catch (ClientNotFoundException e) {
             if (!(e.equals(null))) {
                 System.out.println("Введите имя и фамилию через пробел.");
                 String names = TestMarket.scan.nextLine();
                 String[] words = names.split(" ");
-                toClient = new Client(ITN, words[0], words[1]);
+                toClient = new Client(INN, words[0], words[1]);
             }
         }
         Order newOrder = new Order(toClient);
@@ -105,7 +105,7 @@ public class OnlineMarketUI {
 
     private void showOrders() {
         showTitle("Список заказов");
-        System.out.println("id      ITN             customer name");
+        System.out.println("id      INN             customer name");
         for (Order aOrder : Order.orders) {
             System.out.print(aOrder.getId());
 
@@ -118,7 +118,7 @@ public class OnlineMarketUI {
             }
 
             System.out.print("    ");
-            System.out.printf("%s     %s %s\n", aOrder.getCustomer().getITN(), aOrder.getCustomer().getName(), aOrder.getCustomer().getSurname());
+            System.out.printf("%s     %s %s\n", aOrder.getCustomer().getINN(), aOrder.getCustomer().getName(), aOrder.getCustomer().getSurname());
         }
     }
 
@@ -137,7 +137,7 @@ public class OnlineMarketUI {
             }
 
             System.out.print("    ");
-            System.out.printf("%s     %s", aClient.getITN(), aClient.getOrdersCount());
+            System.out.printf("%s     %s", aClient.getINN(), aClient.getOrdersCount());
             if (aClient.getOrdersCount() != 0) {
                 for(int i = 0; i < (17 - getCountsOfDigits(aClient.getOrdersCount())); i++) {
                     System.out.print(" ");

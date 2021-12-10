@@ -1,4 +1,4 @@
-package stepanPackage.practice12.task1;
+package stepanPackage.practice12to15.task1;
 
 public class TestPerson {
     public static void main(String[] args) {

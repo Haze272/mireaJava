@@ -1,4 +1,4 @@
-package stepanPackage.practice12.task3;
+package stepanPackage.practice12to15.task3;
 
 public class TestShirt {
     public static void main(String[] args) {

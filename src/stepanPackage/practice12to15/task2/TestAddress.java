@@ -1,4 +1,4 @@
-package stepanPackage.practice12.task2;
+package stepanPackage.practice12to15.task2;
 
 public class TestAddress {
     public static void main(String[] args) {

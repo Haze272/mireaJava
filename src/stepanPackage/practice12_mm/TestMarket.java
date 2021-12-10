@@ -1,4 +1,4 @@
-package stepanPackage.practice9;
+package stepanPackage.practice12_mm;
 
 import java.util.Scanner;
 
@@ -6,6 +6,6 @@ public class TestMarket {
     public static final Scanner scan = new Scanner(System.in);
 
     public static void main(String[] args) {
-        MarketApp app = new MarketApp();
+        OnlineMarketUI app = new OnlineMarketUI();
     }
 }
