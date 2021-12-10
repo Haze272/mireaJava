@@ -1,5 +1,7 @@
 package stepanPackage.practice12_mm;
 
+import java.util.ArrayList;
+
 public class OnlineMarketUI {
     public OnlineMarketUI() {
         System.out.println("");
@@ -13,6 +15,7 @@ public class OnlineMarketUI {
         System.out.println("1. Добавить заказ");
         System.out.println("2. Список заказов");
         System.out.println("3. Список клиентов");
+        System.out.println("4. Поиск клиента");
 
         String entering = TestMarket.scan.nextLine();
 
@@ -25,6 +28,9 @@ public class OnlineMarketUI {
                 break;
             case "3":
                 showClients();
+                break;
+            case "4":
+                searchClient();
                 break;
             default:
                 System.out.println("Не могу распознать вариант выбора.");
@@ -57,6 +63,43 @@ public class OnlineMarketUI {
         Order newOrder = new Order(toClient);
 
         newOrder.executeOrder();
+    }
+
+    private void searchClient() {
+        System.out.println("--------Поиск клиента по имени--------\n");
+        System.out.print("Введете имя и фамилию через проблел (Иван Иванов) или что-то одно (Иван): ");
+
+        String toName = TestMarket.scan.nextLine();
+        String[] toNames = toName.split(" ");
+        System.out.println(toNames[0] + " " + toNames[1]);
+        try {
+            ArrayList<Client> foundClients = Client.findClientsByName(toNames[0], toNames[1]);
+            System.out.printf("Найдено %d клиентов\n", foundClients.size());
+
+            System.out.println("id    ИНН              Кол-во заказов    Имя клиента");
+            for (Client aClient : foundClients) {
+                System.out.print(aClient.getId());
+
+                for(int i = 0; i < (4 - getCountsOfDigits(aClient.getId())); i++) {
+                    System.out.print(" ");
+                }
+
+                System.out.print("  ");
+                System.out.printf("%s      %s", aClient.getINN(), aClient.getOrdersCount());
+                if (aClient.getOrdersCount() != 0) {
+                    for(int i = 0; i < (18 - getCountsOfDigits(aClient.getOrdersCount())); i++) {
+                        System.out.print(" ");
+                    }
+                } else {
+                    System.out.print("                 ");
+                }
+                System.out.printf("%s %s\n", aClient.getName(), aClient.getSurname());
+            }
+
+        } catch (ClientNotFoundException e) {
+            System.out.println(e.toString());
+            return;
+        }
     }
 
     private void showOrders() {

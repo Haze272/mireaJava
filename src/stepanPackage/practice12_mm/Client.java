@@ -18,8 +18,35 @@ public class Client {
         clients.add(this);
     }
 
+    public static ArrayList<Client> findClientsByName(String name, String surname) throws ClientNotFoundException {
+        ArrayList<Client> resultClients = new ArrayList<>();
+        for (Client toFind : clients) {
+            if (toFind.name.equals(name) && toFind.surname.equals(surname)) {
+                resultClients.add(toFind);
+            }
+        }
+
+        if(resultClients.size() == 0) {
+            throw new ClientNotFoundException("Клиент не найден в базе");
+        }
+        return resultClients;
+    }
+
+    public static ArrayList<Client> findClientsByName(String nameOrSurname) throws ClientNotFoundException {
+        ArrayList<Client> resultClients = new ArrayList<>();
+        for (Client toFind : clients) {
+            if (toFind.name.equals(nameOrSurname) || toFind.surname.equals(nameOrSurname)) {
+                resultClients.add(toFind);
+            }
+        }
+
+        if(resultClients.size() == 0) {
+            throw new ClientNotFoundException("Клиент не найден в базе");
+        }
+        return resultClients;
+    }
+
     public static Client findClientByINN(String INNy) throws ClientNotFoundException {
-        // TODO сделать адекватный поиск с нормальным 0-временем
         Client result = null;
         for(Client aClient : clients) {
             if (aClient.getINN().equals(INNy)) {
