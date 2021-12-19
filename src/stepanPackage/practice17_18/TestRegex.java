@@ -39,8 +39,6 @@ public class TestRegex {
 
         List<String> list = Arrays.asList("34.56 UAH", "99 EU", "2000 RUR", "555 BNB", "17.020 USD");
 
-        StringBuilder result = new StringBuilder();
-
         for (String str : list) {
             regexer(str, "([0-9]+.[0-9]{2}) (USD|RUR|EU)");
         }
