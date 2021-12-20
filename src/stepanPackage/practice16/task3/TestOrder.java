@@ -3,7 +3,6 @@ package stepanPackage.practice16.task3;
 import stepanPackage.practice16.task1.Drink;
 import stepanPackage.practice16.task2.Dish;
 
-
 public class TestOrder {
     public static void main(String[] args) {
         TablesOrderManager orderManager = new TablesOrderManager();

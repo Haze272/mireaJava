@@ -1,5 +1,4 @@
 package stepanPackage.practice16.task1;
-
 import stepanPackage.practice16.task2.Item;
 
 public final class Drink implements Item {
@@ -23,24 +22,16 @@ public final class Drink implements Item {
         this.name = name;
         this.description = description;
     }
-
-    @Override
-    public int getPrice() {
+    @Override public int getPrice() {
         return price;
     }
-
-    @Override
-    public String getDescription() {
+    @Override public String getDescription() {
         return description;
     }
-
-    @Override
-    public String getName() {
+    @Override public String getName() {
         return name;
     }
-
-    @Override
-    public String toString() {
+    @Override public String toString() {
         return "Bebida " + getName() + " cuesta " + getPrice() + ".\n Descripcion: " + getDescription();
     }
 }

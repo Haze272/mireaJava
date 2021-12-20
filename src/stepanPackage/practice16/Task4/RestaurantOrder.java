@@ -16,7 +16,6 @@ public class RestaurantOrder implements Order {
         } else return false;
 
     }
-
     public boolean remove(String itemName){
         int i = 0;
         while (i < size) {

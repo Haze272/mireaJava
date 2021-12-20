@@ -1,7 +1,5 @@
 package stepanPackage.practice16.task1;
 
-import stepanPackage.practice16.task2.Item;
-
 public class TestDrink {
 
     public static void main(String[] args) {

@@ -20,10 +20,8 @@ public class OrderList<T> {
             return data;
         }
     }
-
     private Node<T> front;
     private int size;
-
     public OrderList() {
         front = null;
         size = 0;
@@ -61,15 +59,12 @@ public class OrderList<T> {
     public boolean isEmpty() {
         return size == 0;
     }
-
     public int size() {
         return size;
     }
-
     public Node getNext(Node current){
         return current.next;
     }
-
     public Node getFront(){
         return front;
     }

@@ -1,7 +1,3 @@
-//
-// Practice ¹–1 Berkunov Stepan INBO-02-20
-//
-
 package stepanPackage.practice1;
 
 import java.lang.*;

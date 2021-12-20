@@ -1,7 +1,3 @@
-//
-// Practice ¹–2 Berkunov Stepan INBO-02-20
-//
-
 package stepanPackage.practice2;
 
 public class TestAuthor {

@@ -22,23 +22,16 @@ public final class Dish implements Item {
         this.description = description;
     }
 
-    @Override
-    public int getPrice() {
+    @Override public int getPrice() {
         return price;
     }
-
-    @Override
-    public String getDescription() {
+    @Override public String getDescription() {
         return description;
     }
-
-    @Override
-    public String getName() {
+    @Override public String getName() {
         return name;
     }
-
-    @Override
-    public String toString() {
+    @Override public String toString() {
         return "Comida " + getName() + " cuesta " + getPrice() + ".\n Descripcion: " + getDescription();
     }
 }

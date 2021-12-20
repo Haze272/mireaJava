@@ -1,5 +1,4 @@
 package stepanPackage.practice19_20;
-
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.concurrent.TimeUnit;
@@ -9,16 +8,12 @@ public class TestAutoId {
         ArrayList<String> numeros = AutoIdGenerator.generate(3000);
         numeros.add("А777МР 77");
         numeros.add("Е999КХ 99");
-
         for (String num : numeros) {
             System.out.println(num);
         }
-
-
         System.out.println("----------------------------------------");
         ArrayList<String> sortedNumeros = numeros;
         Collections.sort(sortedNumeros);
-
         final long then = System.nanoTime();
         boolean isFound = numeros.contains("А777МР 77");
         final long millis = TimeUnit.NANOSECONDS.toMillis(System.nanoTime() - then);

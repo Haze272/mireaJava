@@ -22,8 +22,7 @@ public class Shirt {
         }
     }
 
-    @Override
-    public String toString() {
+    @Override public String toString() {
         return "article='" + article + '\'' +
                 ", name='" + name + '\'' +
                 ", color='" + color + '\'' +

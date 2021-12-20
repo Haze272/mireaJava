@@ -1,7 +1,6 @@
 package stepanPackage.practice11.task2;
 
 import java.util.Iterator;
-import java.util.LinkedList;
 
 public class LinkedQueue<E> implements Queue<E>, Iterable<E> {
     private int n;         // number of elements on queue

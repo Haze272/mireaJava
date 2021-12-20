@@ -1,8 +1,5 @@
 package stepanPackage.practice11.task2;
 
-
-import java.util.Collection;
-
 public interface Queue<E>{
     E element() throws NoSuchElementException;
     // Возвращает элемент из головы очереди. Элемент не удаляется.

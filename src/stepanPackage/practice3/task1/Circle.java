@@ -32,8 +32,7 @@ public class Circle extends Shape {
 	public double getPerimeter() {
 		return 2 * Math.PI * this.getRadius();
 	}
-	
-	// @Override ????
+
 	public String toString() {
 		return "Radius: " + this.getRadius() + " , color: " + this.getColor() + " , filled: " + this.isFilled();
 	}
